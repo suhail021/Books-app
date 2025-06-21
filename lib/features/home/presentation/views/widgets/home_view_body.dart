@@ -1,36 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:google/core/utils/assates.dart';
+import 'package:google/core/utils/styles.dart';
+import 'package:google/features/home/presentation/views/widgets/best_seller_list_view.dart';
+import 'package:google/features/home/presentation/views/widgets/custome_app_bar.dart';
+import 'package:google/features/home/presentation/views/widgets/featured_books_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [const CustomAppBar()]);
-  }
-}
-
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Column(children: [CustomAppBar(),
-    CustomeCard()]);
-  }
-}
-
-class CustomeCard extends StatelessWidget {
-  const CustomeCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      width: 100,
-      decoration: const BoxDecoration(
-        image: DecorationImage(fit: BoxFit.contain,image: AssetImage(AssetsData.testImage)),
-      ),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomeAppBar(),
+              const FeaturedBooksListView(),
+              const SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text("Best Seller", style: Styles.textStyle20),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
+        ),
+        SliverFillRemaining(child: BestSellerListView(),)
+      ],
     );
   }
 }
