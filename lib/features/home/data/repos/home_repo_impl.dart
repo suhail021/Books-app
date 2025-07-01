@@ -8,7 +8,7 @@ import 'package:google/features/home/data/repos/home_repo.dart';
 class HomeRepoImpl implements HomeRepo {
   final ApiServes apiServes;
 
-  HomeRepoImpl({required this.apiServes});
+  HomeRepoImpl( this.apiServes);
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
