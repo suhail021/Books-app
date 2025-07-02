@@ -28,7 +28,7 @@ class BestSellerListViewItem extends StatelessWidget {
                 // 3 this is the width a nd the 4 is the height
                 aspectRatio: 3 / 4,
                 child: CachedNetworkImage(
-              imageUrl: book.volumeInfo.imageLinks.thumbnail,
+              imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
               fit: BoxFit.fill,
                     // placeholder: (context, url) => const CircularProgressIndicator(padding: EdgeInsets.symmetric(horizontal: 45,vertical: 80),color: Colors.white,strokeWidth: 2,),
               errorWidget: (context, url, error) {

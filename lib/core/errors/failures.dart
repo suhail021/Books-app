@@ -17,7 +17,7 @@ class ServerFailure extends Failure {
         return ServerFailure("Send timeout with ApiServer");
       case DioExceptionType.receiveTimeout:
         return ServerFailure("Receive timeout with ApiServer");
-      case DioExceptionType.badCertificate:
+      case DioExceptionType.badCertificate: 
         // TODO: Handle this case.
         throw UnimplementedError();
       case DioExceptionType.badResponse:
