@@ -28,10 +28,10 @@ class ServerFailure extends Failure {
       case DioExceptionType.cancel:
         return ServerFailure("Receive timeout with ApiServer");
       case DioExceptionType.connectionError:
-        if (dioException.message!.contains("souketException")) {
+        if (dioException.message!.contains('SouketException:')) {
           return ServerFailure('No Internet Connection');
         }
-        return ServerFailure('Unexpected Error,palse try again!');
+        return ServerFailure('No Internet Connection!');
 
       case DioExceptionType.unknown:
         return ServerFailure('connectionError');
