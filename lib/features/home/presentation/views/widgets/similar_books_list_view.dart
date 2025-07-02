@@ -18,11 +18,11 @@ class SimilarBooksListView extends StatelessWidget {
             child: ListView.builder(
               semanticChildCount: 1,
               scrollDirection: Axis.horizontal,
-              itemCount: 6,
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return const CustomeBooksImageListViewItem(
+                return  CustomeBooksImageListViewItem(
                   aspectratio: 2.5 / 4,
-                  imageUrl: 'https://images.app.goo.gl/KmPQu1mW3jpuEV7X8',
+                  imageUrl:state.books[index].volumeInfo.imageLinks?.thumbnail ?? '' ,
                 );
               },
             ),

@@ -6,7 +6,7 @@ import 'package:google/features/home/presentation/views/widgets/book_details_vie
 
 class BookDetailsView extends StatefulWidget {
   const BookDetailsView({super.key, required this.bookModel});
-final BookModel bookModel;
+  final BookModel bookModel;
   @override
   State<BookDetailsView> createState() => _BookDetailsViewState();
 }
@@ -14,11 +14,14 @@ final BookModel bookModel;
 class _BookDetailsViewState extends State<BookDetailsView> {
   @override
   void initState() {
-BlocProvider.of<SimilarBooksCubit>(context).fetchSimilarBooks(categary: widget.bookModel.volumeInfo.categories![0]);
-  super.initState();
+    BlocProvider.of<SimilarBooksCubit>(
+      context,
+    ).fetchSimilarBooks(categary: widget.bookModel.volumeInfo.categories![0]);
+    super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: BookDetailsViewBody());
+    return Scaffold(body: BookDetailsViewBody(bookModel: widget.bookModel));
   }
 }
