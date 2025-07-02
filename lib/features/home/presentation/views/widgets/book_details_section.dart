@@ -29,7 +29,7 @@ final BookModel bookModel;
 
         const BookRating(),
         SizedBox(height: 10),
-        BooksAction(),
+        BooksAction(bookModel: bookModel,),
       ],
     );
   }

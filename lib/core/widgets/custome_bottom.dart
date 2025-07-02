@@ -7,8 +7,9 @@ class CustomeBottom extends StatelessWidget {
     required this.bgcolor,
     required this.borderRadius,
     required this.textcolor,
-    required this.text,
+    required this.text, this.onPressed,
   });
+  final void Function()? onPressed;
   final String text;
   final Color textcolor;
   final Color bgcolor;
@@ -16,7 +17,7 @@ class CustomeBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       height: 44,
       color: bgcolor,
       shape: RoundedRectangleBorder(borderRadius: borderRadius),

@@ -11,7 +11,9 @@ class CustomeBooksDetailsAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.close, size: 28)),
+          IconButton(onPressed: () {
+            Navigator.pop(context);
+          }, icon: const Icon(Icons.close, size: 28)),
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.shopping_cart_outlined, size: 26),
