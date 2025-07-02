@@ -8,7 +8,7 @@ class CustomeBooksDetailsImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * .29,
-      child: const CustomeBooksImageListViewItem(aspectratio: 3 / 4),
+      child: const CustomeBooksImageListViewItem(aspectratio: 3 / 4, imageUrl: '',),
     );
   }
 }

@@ -1,8 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google/constants.dart';
-import 'package:google/core/utils/api_serves.dart';
 import 'package:google/core/utils/app_router.dart';
 import 'package:google/core/utils/service_locator.dart';
 import 'package:google/features/home/data/repos/home_repo_impl.dart';
@@ -21,7 +19,7 @@ class BooksApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) => NewsetBooksCubit(getIt.get<HomeRepoImpl>()),
