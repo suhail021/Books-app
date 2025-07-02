@@ -1,14 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google/constants.dart';
 import 'package:google/core/utils/app_router.dart';
-import 'package:google/core/utils/assates.dart';
 import 'package:google/core/utils/styles.dart';
+import 'package:google/features/home/data/models/book_model/book_model.dart';
 import 'package:google/features/home/presentation/views/widgets/book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
+ const BestSellerListViewItem({super.key, required this.book});
+  final BookModel book ;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,18 +22,19 @@ class BestSellerListViewItem extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(width: 20),
-            AspectRatio(
-              // 3 this is the width and the 4 is the height
-              aspectRatio: 3 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color(0xffFF4F33),
-                  borderRadius: BorderRadius.circular(6),
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(AssetsData.testImage),
-                  ),
-                ),
+            ClipRRect(
+              borderRadius: BorderRadiusGeometry.circular(8),
+              child: AspectRatio(
+                // 3 this is the width a nd the 4 is the height
+                aspectRatio: 3 / 4,
+                child: CachedNetworkImage(
+              imageUrl: book.volumeInfo.imageLinks.thumbnail,
+              fit: BoxFit.fill,
+                    // placeholder: (context, url) => const CircularProgressIndicator(padding: EdgeInsets.symmetric(horizontal: 45,vertical: 80),color: Colors.white,strokeWidth: 2,),
+              errorWidget: (context, url, error) {
+                return const Icon(Icons.error);
+              },
+                        ),
               ),
             ),
             SizedBox(width: 20),
@@ -44,17 +46,17 @@ class BestSellerListViewItem extends StatelessWidget {
                   SizedBox(
                     // width: MediaQuery.of(context).size.width * .5,
                     child: Text(
-                      "Harey Potter and the Goblet of Fire ",
+                      book.volumeInfo.title!,
 
-                      style: Styles.textStyle20.copyWith(
-                        fontFamily: kGtSectraFine,
+                      style: Styles.textStyle20.copyWith( 
+                        fontFamily: kGtSectraFine, 
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Text(
-                    "J.K.Rowling",
+                   book.volumeInfo.authors![0],
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Styles.textStyle14,
@@ -63,7 +65,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "19.99 C",
+                        "Free",
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
