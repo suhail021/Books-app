@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google/features/home/data/models/book_model/book_model.dart';
+import 'package:google/core/models/book_model/book_model.dart';
 import 'package:google/features/home/presentation/manger/similar_books_cubit/similar_books_cubit.dart';
 import 'package:google/features/home/presentation/views/widgets/book_details_view_body.dart';
 
@@ -16,7 +16,7 @@ class _BookDetailsViewState extends State<BookDetailsView> {
   void initState() {
     BlocProvider.of<SimilarBooksCubit>(
       context,
-    ).fetchSimilarBooks(categary: widget.bookModel.volumeInfo.categories![0]);
+    ).fetchSimilarBooks(categary: widget.bookModel.volumeInfo.categories?[0] ?? " no categories");
     super.initState();
   }
 

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:google/features/home/data/models/book_model/book_model.dart';
+import 'package:google/core/models/book_model/book_model.dart';
 
 class ApiServes {
   final _baseUrl = 'https://www.googleapis.com/books/v1/';

@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchTextFiled extends StatelessWidget {
-  const CustomSearchTextFiled({super.key});
+  final TextEditingController controller;
+  final VoidCallback onSearchPressed;
+
+  const CustomSearchTextFiled({
+    super.key,
+    required this.controller,
+    required this.onSearchPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: controller,
+      onTap: onSearchPressed,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.white),
@@ -15,9 +24,10 @@ class CustomSearchTextFiled extends StatelessWidget {
           borderSide: BorderSide(color: Colors.white, width: 2),
           borderRadius: BorderRadius.circular(20),
         ),
+
         hintText: 'Search',
         suffixIcon: IconButton(
-          onPressed: () {},
+          onPressed: onSearchPressed,
           icon: Icon(Icons.search, color: Colors.white),
         ),
       ),

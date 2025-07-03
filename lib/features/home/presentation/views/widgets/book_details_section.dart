@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google/core/utils/styles.dart';
-import 'package:google/features/home/data/models/book_model/book_model.dart';
+import 'package:google/core/models/book_model/book_model.dart';
 import 'package:google/features/home/presentation/views/widgets/BooksAction.dart';
 import 'package:google/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:google/features/home/presentation/views/widgets/custome_books_details_app_bar.dart';

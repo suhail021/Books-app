@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:google/features/home/data/models/book_model/book_model.dart';
+import 'package:google/core/models/book_model/book_model.dart';
 import 'package:google/features/home/data/repos/home_repo.dart';
 
 part 'featured_books_state.dart';

@@ -2,14 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google/constants.dart';
+import 'package:google/core/models/book_model/book_model.dart';
 import 'package:google/core/utils/app_router.dart';
 import 'package:google/core/utils/styles.dart';
-import 'package:google/core/models/book_model/book_model.dart';
 import 'package:google/features/home/presentation/views/widgets/book_rating.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key, required this.book});
-  final BookModel book;
+class SearchViewItem extends StatelessWidget {
+  const SearchViewItem({super.key, required this.book});
+final BookModel book;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -56,7 +56,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    book.volumeInfo.authors![0],
+                    book.volumeInfo.authors?[0] ?? "no name",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Styles.textStyle14,

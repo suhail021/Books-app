@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google/features/home/data/models/book_model/book_model.dart';
+import 'package:google/core/models/book_model/book_model.dart';
 
 import 'package:google/features/home/presentation/views/widgets/book_details_section.dart';
 

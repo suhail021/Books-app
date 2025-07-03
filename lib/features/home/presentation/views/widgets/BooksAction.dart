@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google/core/utils/Function/launch_url.dart';
 import 'package:google/core/widgets/custome_bottom.dart';
-import 'package:google/features/home/data/models/book_model/book_model.dart';
+import 'package:google/core/models/book_model/book_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BooksAction extends StatelessWidget {
